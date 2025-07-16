@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& target, int n) {
+        vector<string>st;
+        int x=1;
+        for(int i : target)
+        {
+            while(x<i)
+            {
+                st.push_back("Push");
+                st.push_back("Pop");
+                x++;
+            }
+            st.push_back("Push");
+            x++;
+            
+        }
+        return st;
+    }
+};
