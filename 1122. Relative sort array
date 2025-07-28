@@ -1,0 +1,48 @@
+// get sizes
+// create res vector
+// create bool vector that is all false for arr1
+// check if arr2 == arr1 and return all with duplicates and mark them as used if they are present
+// create a vector remaining
+// loop through the bool vector if anything is still false push that to the remaining vector
+// sort the remaining vector
+// insert into the result vector
+
+
+
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        vector<int>res;
+        int n = arr2.size();
+        int m = arr1.size();
+        vector<bool> used(m,false);
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0; j<m; j++)
+            {
+                if(arr2[i] == arr1[j])
+                {
+                    res.push_back(arr1[j]);
+                    used[j] = true; 
+                }
+                
+            }   
+        }
+        vector<int>remaining;
+        for(int i=0; i<m; i++)
+        {
+            if(!used[i])
+            {
+                remaining.push_back(arr1[i]);
+            }
+        }
+        sort(remaining.begin(), remaining.end());
+        res.insert(res.end(), remaining.begin(), remaining.end());
+        return res;
+    }
+};
+
+
+
+
+
