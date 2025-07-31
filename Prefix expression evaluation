@@ -1,3 +1,12 @@
+// tokenize all and add to token vector
+// from token vector trverse from lat i.e right to left
+// if operator pop the num from stack as a,b (important a then b)
+// if num add to the stack by converting the string to int (stoi)
+// perform the operation as res
+// push the res into the stcak
+// finally print the top of the stack
+
+
 #include <iostream>
 #include <stack>
 #include <vector>
