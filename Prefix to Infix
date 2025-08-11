@@ -1,0 +1,36 @@
+// 1. Iterate from back 
+// 2. If operand push to stack
+// 3. If operator , pop a as first and b as second concat them with '(' + a + operator(s[i]) + b + '') and push it to the stack
+// 4. Finally return the top of the stack
+
+
+
+// User function Template for C++
+
+
+class Solution {
+  public:
+    string preToInfix(string pre_exp) {
+        // Write your code here
+        stack<string>st;
+        int n = pre_exp.size();
+        for(int i=n-1; i>=0; i--)
+        {
+            char ch = (pre_exp[i]);
+            if(isalpha(ch))
+            {
+                st.push(string(1,ch));  // since we are pushing a char into a string stack , we conv char to string
+            }
+            else 
+            {
+                string a = st.top(); st.pop();
+                string b = st.top(); st.pop();
+                
+                string ans = '(' + a + ch + b + ')';
+                
+                st.push(ans);
+            }
+        }
+        return st.top();
+    }
+};
